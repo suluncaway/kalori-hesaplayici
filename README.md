@@ -6,7 +6,7 @@ Webte çalışan, Türkçe arayüzlü günlük kalori ihtiyacı hesaplama uygula
 
 - **Bazal metabolizma hızı (BMR)** hesabı — Mifflin-St Jeor formülü
 - **Günlük kalori ihtiyacı (TDEE)** — 5 aktivite düzeyi (1,2 – 1,9 katsayıları)
-- **Hedef seçimi** — kilo verme / koruma / alma (±500 kcal, haftada ~0,45 kg)
+- **Hedef seçimi** — kilo verme / koruma / alma (±500 kcal; haftalık tahmin gerçek açık/fazlaya göre hesaplanır, günlük 1.000 kcal altına inilmez)
 - Girdi doğrulama: boş, geçersiz ve aralık dışı değerlerde alan bazlı hata mesajları
 - Girdi değişince eski sonuç otomatik gizlenir (bayat sonuç kalmaz)
 - Mobil ve masaüstü için duyarlı (responsive) tasarım

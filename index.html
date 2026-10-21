@@ -614,18 +614,27 @@
         var hedefMetin;
         if (hedef === 'vermek') {
           hedefKcal = Math.max(1000, tdee - 500);
-          hedefMetin = 'Kilo vermek için günde yaklaşık <strong>' +
-            Math.round(hedefKcal).toLocaleString('tr-TR') +
-            ' kcal</strong> alabilirsin. Bu, haftada kabaca 0,45 kg kayıp demektir.';
+          var acik = tdee - hedefKcal;
+          if (acik >= 100) {
+            var kgKayip = (acik * 7 / 7700).toFixed(2).replace('.', ',');
+            hedefMetin = 'Kilo vermek için günlük tahmini hedefin <strong>' +
+              Math.round(hedefKcal).toLocaleString('tr-TR') +
+              ' kcal</strong>. Bu, haftada kabaca ' + kgKayip + ' kg kayıp demektir.';
+          } else {
+            hedefMetin = 'Kilo vermek için günlük tahmini hedefin <strong>' +
+              Math.round(hedefKcal).toLocaleString('tr-TR') +
+              ' kcal</strong>. Günlük 1.000 kcal altı önerilmediği için bu hedef kilo koruma seviyesine yakındır; kayıp yavaş olur.';
+          }
         } else if (hedef === 'almak') {
           hedefKcal = tdee + 500;
-          hedefMetin = 'Kilo almak için günde yaklaşık <strong>' +
+          var kgKazanim = ((hedefKcal - tdee) * 7 / 7700).toFixed(2).replace('.', ',');
+          hedefMetin = 'Kilo almak için günlük tahmini hedefin <strong>' +
             Math.round(hedefKcal).toLocaleString('tr-TR') +
-            ' kcal</strong> alabilirsin. Bu, haftada kabaca 0,45 kg kazanım demektir.';
+            ' kcal</strong>. Bu, haftada kabaca ' + kgKazanim + ' kg kazanım demektir.';
         } else {
-          hedefMetin = 'Mevcut kilonu korumak için günde <strong>' +
+          hedefMetin = 'Mevcut kilonu korumak için tahmini günlük ihtiyacın <strong>' +
             Math.round(tdee).toLocaleString('tr-TR') +
-            ' kcal</strong> almalısın.';
+            ' kcal</strong>.';
         }
 
         document.getElementById('sonuc-bmr').innerHTML =
