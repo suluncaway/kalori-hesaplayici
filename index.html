@@ -421,6 +421,8 @@
 #besin-gunlugu .diary-food-fallback{aspect-ratio:1;align-items:center;justify-items:center;background:linear-gradient(135deg,var(--color-primary-highlight),var(--color-surface-offset));border:1px solid var(--color-divider)}
 
 #besin-gunlugu .daily-advice{margin-top:18px;padding:17px 18px;border:1px solid var(--color-border);background:var(--color-primary-highlight);border-radius:14px;color:var(--color-text)}#besin-gunlugu .daily-advice h3{font-size:1.05rem;margin:0 0 7px}#besin-gunlugu .daily-advice p{margin:5px 0 10px;line-height:1.5}#besin-gunlugu .daily-advice ul{padding-left:19px;margin:7px 0 12px}#besin-gunlugu .daily-advice li{margin:7px 0;line-height:1.45}#besin-gunlugu .daily-advice small{color:var(--color-text-muted);line-height:1.4;display:block}
+
+#besin-gunlugu .plan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0 22px}#besin-gunlugu .plan-item{background:var(--color-surface-offset);border:1px solid var(--color-divider);border-radius:13px;padding:14px;min-width:0}#besin-gunlugu .plan-item h3{font-size:1rem;margin:0 0 9px}#besin-gunlugu .plan-item ul{padding-left:19px;margin:0 0 12px}#besin-gunlugu .plan-item li{line-height:1.5;margin:5px 0;font-size:.87rem}#besin-gunlugu .plan-item strong{color:var(--color-primary)}#besin-gunlugu .plan-item a{color:var(--color-primary);text-decoration:underline}#besin-gunlugu .plan-summary{font-size:.88rem;line-height:1.5;color:var(--color-text-muted)}#besin-gunlugu .plan-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;align-items:end}#besin-gunlugu .plan-controls label{grid-row:1;margin-bottom:0}#besin-gunlugu .plan-controls select{grid-row:2}@media(max-width:560px){#besin-gunlugu .plan-grid{grid-template-columns:1fr}#besin-gunlugu .plan-item{padding:12px}}
 </style>
 </head>
 <body>
@@ -716,7 +718,7 @@
   </script>
 
 <section id="besin-gunlugu" aria-labelledby="gunluk-title"><h2 id="gunluk-title">🥗 Besin günlüğü</h2><p>Besinleri fotoğraflarıyla ara, gramajını seç ve günlük kalori ile makro değerlerini takip et. Kayıtların yalnızca bu tarayıcıda saklanır.</p><section class="diary-card"><div class="diary-grid"><div><label for="date">Tarih</label><input id="date" type="date"></div><div><label for="goal">Günlük kalori hedefi</label><input id="goal" type="number" min="1" max="10000" value="2000"></div></div><h2>Günlük özet</h2><div class="diary-stats"><div class="diary-stat"><small>Kalori</small><strong id="cal">0</strong><small>kcal</small></div><div class="diary-stat"><small>Protein</small><strong id="protein">0</strong><small>g</small></div><div class="diary-stat"><small>Karbonhidrat</small><strong id="carbs">0</strong><small>g</small></div><div class="diary-stat"><small>Yağ</small><strong id="fat">0</strong><small>g</small></div></div><p id="remaining" aria-live="polite"></p><div class="diary-bar" aria-label="Kalori hedefi ilerlemesi"><div id="progress"></div></div><div id="daily-advice" class="daily-advice" aria-live="polite"><h3 id="advice-title">Günlük değerlendirme</h3><p id="advice-message">Yediklerini eklediğinde hedefinle karşılaştırıp öneriler göstereceğiz.</p><ul id="advice-suggestions"></ul><small>Bu öneriler genel bilgilendirme amaçlıdır. Tek bir günün sonucu sağlık durumunu belirlemez; egzersiz yemekleri telafi etmek için zorunlu değildir.</small></div></section>
-<section class="diary-card"><h2>Besin ekle</h2><label for="search">Besin ara</label><input id="search" type="search" placeholder="Örn. yumurta, pilav, yoğurt"><div class="diary-grid"><div><label for="portion">Porsiyon seçimi <small>(önce listeden besin seç)</small></label><select id="portion"><option value="100">100 gram</option></select></div><div><label for="grams">Miktar (gram)</label><input id="grams" type="number" value="100" min="1" max="10000" step="1" inputmode="decimal"></div><div><label for="meal">Öğün</label><select id="meal"><option>Kahvaltı</option><option>Öğle</option><option>Akşam</option><option>Ara öğün</option></select></div></div><p class="diary-muted">Besin değerleri 100 gram için yaklaşık değerlerdir; marka ve pişirme yöntemine göre değişir.</p><p id="selected-food" class="diary-muted" aria-live="polite">Önce bir besin seçebilir veya 100 g üzerinden doğrudan ekleyebilirsin.</p><div id="foods"></div></section>
+<section class="diary-card" id="personal-plan"><h2>🥗 Günlük menü önerisi</h2><p class="diary-muted">Kalori hedefin ve kaydettiğin öğünlere göre yaklaşık porsiyonlarla örnek menü. Besin değerleri tahminidir.</p><div id="menu-summary" class="plan-summary"></div><div id="menu-items" class="plan-grid"></div><h2>🏠 Evde spor programı</h2><p class="diary-muted">Ekipmansız başlangıç programı. Hareketlerin anlatımı için MuscleWiki bağlantılarını açabilirsin. Spor, fazla yemek yemenin cezası değildir.</p><div class="plan-controls"><label for="fitness-level">Seviye</label><select id="fitness-level"><option value="beginner">Başlangıç</option><option value="intermediate">Orta</option></select><label for="fitness-days">Haftalık gün</label><select id="fitness-days"><option value="2">2 gün</option><option value="3" selected>3 gün</option><option value="4">4 gün</option></select></div><div id="workout-plan" class="plan-grid"></div><p class="diary-muted">Her seansa 5 dakika ısınarak başla, setler arasında 60–90 saniye dinlen. Ağrı veya baş dönmesinde dur. Egzersizlerin bağlantıları MuscleWiki'nin kendi sayfalarına gider; canlı veri entegrasyonu kullanılmaz.</p></section><section class="diary-card"><h2>Besin ekle</h2><label for="search">Besin ara</label><input id="search" type="search" placeholder="Örn. yumurta, pilav, yoğurt"><div class="diary-grid"><div><label for="portion">Porsiyon seçimi <small>(önce listeden besin seç)</small></label><select id="portion"><option value="100">100 gram</option></select></div><div><label for="grams">Miktar (gram)</label><input id="grams" type="number" value="100" min="1" max="10000" step="1" inputmode="decimal"></div><div><label for="meal">Öğün</label><select id="meal"><option>Kahvaltı</option><option>Öğle</option><option>Akşam</option><option>Ara öğün</option></select></div></div><p class="diary-muted">Besin değerleri 100 gram için yaklaşık değerlerdir; marka ve pişirme yöntemine göre değişir.</p><p id="selected-food" class="diary-muted" aria-live="polite">Önce bir besin seçebilir veya 100 g üzerinden doğrudan ekleyebilirsin.</p><div id="foods"></div></section>
 <section class="diary-card"><h2>Kaydedilen öğünler</h2><div class="diary-scroll"><table><thead><tr><th>Öğün / besin</th><th>Miktar</th><th>Kalori</th><th>İşlem</th></tr></thead><tbody id="entries"></tbody></table></div><p id="empty" class="diary-muted">Bu tarihte henüz kayıt yok.</p><div class="diary-actions"><button id="export">CSV olarak dışa aktar</button><button id="clear">Bu günü temizle</button></div></section></section>
 <script>
 "use strict";
@@ -815,7 +817,55 @@ const portions=[
 function setPortions(name){const select=document.getElementById("portion");const current=Number(document.getElementById("grams").value)||100;select.replaceChildren();const entries=[["100 gram",100],["50 gram",50],["150 gram",150],["200 gram",200],["250 gram",250],...((portions.find(p=>p.test.test(name))||{}).items||[])];for(const [label,grams] of entries){const option=document.createElement("option");option.value=String(grams);option.textContent=label+" · "+grams+" g";select.append(option)}select.value=String(entries.find(e=>e[1]===current)?.[1]||100)}
 const $=id=>document.getElementById(id);const key="kalori-gunluk-v1";let store={};try{store=JSON.parse(localStorage.getItem(key)||"{}")||{}}catch(e){store={}};const today=new Date();$("date").value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,"0"),String(today.getDate()).padStart(2,"0")].join("-");$("goal").value=Number(store.goal)||2000;const save=()=>{try{localStorage.setItem(key,JSON.stringify(store))}catch(e){alert("Tarayıcı kayıt alanı kullanılamıyor.")}};const list=()=>store.days?.[$("date").value]||[];const fmt=n=>Math.round(n*10)/10;
 function renderFoods(){const q=$("search").value.toLocaleLowerCase("tr");$("foods").replaceChildren();let count=0;data.forEach((f,i)=>{if(!f[0].toLocaleLowerCase("tr").includes(q))return;count++;const row=document.createElement("div");row.className="diary-food";const t=document.createElement("div");const b=document.createElement("b");b.textContent=f[0];const s=document.createElement("small");s.textContent="100 g · "+f[1]+" kcal · Protein "+f[2]+" g · Karb. "+f[3]+" g · Yağ "+f[4]+" g";const copy=document.createElement("div");copy.className="diary-food-copy";copy.append(b,s);t.className="diary-food-info";t.append(visualFor(f[0]),copy);const choose=document.createElement("button");choose.textContent="Seç";choose.type="button";choose.className="food-choose";choose.addEventListener("click",()=>{setPortions(f[0]);$("grams").value="100";$("selected-food").textContent="Seçilen besin: "+f[0]+" — aşağıdan porsiyonunu belirleyip Ekle’ye bas.";const chosen=$("foods").querySelectorAll(".diary-food");chosen.forEach(el=>el.classList.remove("is-selected"));row.classList.add("is-selected")});const btn=document.createElement("button");btn.textContent="Ekle";btn.addEventListener("click",()=>{const g=Number($("grams").value);if(!Number.isFinite(g)||g<=0||g>10000){alert("1 ile 10.000 arasında gramaj gir.");return}store.days??={};store.days[$("date").value]??=[];store.days[$("date").value].push({id:Date.now()+"-"+Math.random().toString(36).slice(2),food:i,grams:g,meal:$("meal").value});save();render()});const controls=document.createElement("div");controls.className="food-controls";controls.append(choose,btn);row.append(t,controls);$("foods").append(row)});if(!count)$("foods").textContent="Eşleşen besin bulunamadı."}
-function renderAdvice(consumed,goal,count){
+
+// Hedefe dayalı örnek menü; mevcut 100 g besin tablosundan hesaplanır.
+const menuTemplates=[
+ [["Yumurta",100],["Ekmek (tam buğday)",60],["Domates",100]],
+ [["Tavuk göğsü (pişmiş)",150],["Bulgur pilavı (pişmiş)",200],["Yoğurt (sade)",150]],
+ [["Muz",120],["Badem",25]],
+ [["Somon (pişmiş)",140],["Patates (haşlanmış)",200],["Brokoli",150]]
+];
+const exercises=[
+ {name:"Vücut ağırlığı squat",url:"https://musclewiki.com/exercise/bodyweight-squat",reps:"10–12 tekrar",mid:"12–15 tekrar"},
+ {name:"Şınav",url:"https://musclewiki.com/exercise/push-up",reps:"6–10 tekrar (gerekirse diz üzerinde)",mid:"10–15 tekrar"},
+ {name:"Sandalye squat",url:"https://musclewiki.com/exercise/bodyweight-box-squat",reps:"10 tekrar",mid:"15 tekrar"},
+ {name:"Split squat",url:"https://musclewiki.com/tr-tr/workout/at-home-weight-loss-workout-2",reps:"8 tekrar / bacak",mid:"12 tekrar / bacak"},
+ {name:"Plank jack (alternatif: sabit plank)",url:"https://musclewiki.com/tr-tr/exercise/bodyweight-plank-jack",reps:"15–20 saniye",mid:"25–35 saniye"}
+];
+function renderPersonalPlan(consumed,goal){
+ const summary=$("menu-summary"),container=$("menu-items");
+ container.replaceChildren();
+ const remaining=goal-consumed;
+ summary.textContent=remaining>0?"Bugün yaklaşık "+Math.round(remaining)+" kcal hedef payın kaldı. Aşağıdaki menü günlük planlama örneğidir; tümünü ek olarak yemen gerekmez.":remaining<0?"Bugünkü hedefini yaklaşık "+Math.round(-remaining)+" kcal geçmiş görünüyorsun. Aşağıdaki menü sonraki günler için dengeli bir örnektir; öğün atlamana gerek yok.":"Hedefine yakınsın. Aşağıdaki menü dengeli günlük plan için örnektir.";
+ const base=menuTemplates.map(meal=>meal.reduce((sum,[name,g])=>{const f=data.find(x=>x[0]===name);return sum+(f?f[1]*g/100:0)},0)).reduce((a,b)=>a+b,0);
+ const factor=Math.max(.75,Math.min(1.3,goal/base));
+ const labels=["Kahvaltı","Öğle yemeği","Ara öğün","Akşam yemeği"];
+ menuTemplates.forEach((meal,i)=>{
+  const card=document.createElement("div");card.className="plan-item";
+  const h=document.createElement("h3");h.textContent=labels[i];card.append(h);
+  const ul=document.createElement("ul");let kcal=0;
+  meal.forEach(([name,g])=>{const f=data.find(x=>x[0]===name);if(!f)return;const grams=Math.round(g*factor/5)*5;kcal+=f[1]*grams/100;const li=document.createElement("li");li.textContent=name+" · "+grams+" g";ul.append(li)});
+  card.append(ul);const total=document.createElement("strong");total.textContent="≈ "+Math.round(kcal)+" kcal";card.append(total);container.append(card)
+ });
+}
+function renderWorkout(){
+ const container=$("workout-plan");container.replaceChildren();
+ const level=$("fitness-level").value;const days=Number($("fitness-days").value);
+ const names=["Pazartesi","Çarşamba","Cuma","Pazar"];
+ const schedule=days===2?[0,2]:days===3?[0,1,2]:[0,1,2,3];
+ schedule.forEach((index,i)=>{
+  const card=document.createElement("div");card.className="plan-item";
+  const h=document.createElement("h3");h.textContent=names[index]+" · Tam vücut";card.append(h);
+  const ul=document.createElement("ul");
+  [exercises[i%2===0?0:2],exercises[1],exercises[i%2===0?3:0],exercises[4]].forEach(ex=>{
+   const li=document.createElement("li");const a=document.createElement("a");a.href=ex.url;a.target="_blank";a.rel="noopener noreferrer";a.textContent=ex.name+" ↗";li.append(a,document.createTextNode(" — "+(level==="beginner"?"2 set × "+ex.reps:"3 set × "+ex.mid)));ul.append(li)
+  });card.append(ul);container.append(card)
+ })
+}
+$("fitness-level").addEventListener("change",renderWorkout);
+$("fitness-days").addEventListener("change",renderWorkout);
+renderWorkout();
+function renderAdvice(consumed,goal,count){renderPersonalPlan(consumed,goal);
  const title=$("advice-title"),message=$("advice-message"),suggestions=$("advice-suggestions");
  suggestions.replaceChildren();
  const add=text=>{const li=document.createElement("li");li.textContent=text;suggestions.append(li)};
