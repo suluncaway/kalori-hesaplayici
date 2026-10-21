@@ -415,6 +415,10 @@
  #besin-gunlugu .food-controls button{padding:8px 2px;font-size:.73rem;min-width:0}
 }
 @media(max-width:380px){#besin-gunlugu #foods{gap:6px}#besin-gunlugu .diary-food{padding:7px}#besin-gunlugu .diary-food-thumb,#besin-gunlugu .diary-food-fallback{height:68px}}
+
+/* Consistent photo framing on small screens, including tall source images */
+#besin-gunlugu .diary-food-thumb{display:block;aspect-ratio:1;object-fit:cover;object-position:center center;max-width:100%}
+#besin-gunlugu .diary-food-fallback{aspect-ratio:1;align-items:center;justify-items:center;background:linear-gradient(135deg,var(--color-primary-highlight),var(--color-surface-offset));border:1px solid var(--color-divider)}
 </style>
 </head>
 <body>
@@ -747,7 +751,43 @@ const photoGroups=[
 {terms:["Lahmacun","Pizza"],url:"photo-1513104890138-7c749659a591",emoji:"🍕"},
 {terms:["Kola","suyu"],url:"photo-1544145945-f90425340c7e",emoji:"🥤"}
 ];
-function visualFor(name,small=false){const g=photoGroups.find(g=>g.terms.some(t=>name.toLocaleLowerCase("tr").includes(t.toLocaleLowerCase("tr"))));const fallback=document.createElement("span");fallback.className=small?"entry-icon":"diary-food-fallback";fallback.textContent=g?.emoji||"🍽️";if(!g)return fallback;const img=document.createElement("img");img.className=small?"entry-thumb":"diary-food-thumb";img.alt=name+" için temsili fotoğraf";img.loading="lazy";img.decoding="async";img.src="https://images.unsplash.com/"+g.url+"?auto=format&fit=crop&w="+(small?"96":"180")+"&h="+(small?"96":"180")+"&q=82";img.addEventListener("error",()=>img.replaceWith(fallback),{once:true});return img}
+// Fotoğraf yüklenemezse aynı kategoriden yedek görsel denenir; son çare stilize simgedir.
+const backupFoodPhotos=[
+{terms:["Yumurta"],url:"photo-1518569656558-1f25e69d93d7"},
+{terms:["Tavuk","Hindi","Dana","Döner"],url:"photo-1544025162-d76694265947"},
+{terms:["Somon","Ton balığı","Hamsi"],url:"photo-1519708227418-c8fd9a32b7a2"},
+{terms:["Ekmek","Simit","Poğaça"],url:"photo-1509440159596-0249088772ff"},
+{terms:["Muz","Elma","Portakal","Çilek","Üzüm","Avokado"],url:"photo-1490474418585-ba9bad8fd0ea"},
+{terms:["Brokoli","Ispanak","Marul","Salatalık","Havuç","Domates"],url:"photo-1540420773420-3366772f4999"},
+{terms:["Pirinç","Bulgur","Makarna","Mercimek","Nohut","fasulye","Bezelye","Çorba"],url:"photo-1512621776951-a57141f2eefd"}
+];
+function visualFor(name,small=false){
+ const match=g=>g.terms.some(t=>name.toLocaleLowerCase("tr").includes(t.toLocaleLowerCase("tr")));
+ const g=photoGroups.find(match);
+ const backup=backupFoodPhotos.find(match);
+ const fallback=document.createElement("span");
+ fallback.className=small?"entry-icon":"diary-food-fallback";
+ fallback.setAttribute("role","img");
+ fallback.setAttribute("aria-label",name);
+ fallback.textContent=g?.emoji||"🍽️";
+ const urls=[g?.url,backup?.url,"photo-1498837167922-ddd27525d352"].filter((v,i,a)=>v&&a.indexOf(v)===i);
+ if(!urls.length)return fallback;
+ const img=document.createElement("img");
+ img.className=small?"entry-thumb":"diary-food-thumb";
+ img.alt=name+" için temsili besin fotoğrafı";
+ img.loading="lazy";
+ img.decoding="async";
+ img.referrerPolicy="no-referrer";
+ let attempt=0;
+ const loadNext=()=>{
+  if(attempt>=urls.length){img.replaceWith(fallback);return}
+  const id=urls[attempt++];
+  img.src="https://images.unsplash.com/"+id+"?auto=format&fit=crop&crop=entropy&w="+(small?96:160)+"&h="+(small?96:160)+"&q=78";
+ };
+ img.addEventListener("error",loadNext);
+ loadNext();
+ return img;
+}
 // 100 gram bazlı veri korunur; porsiyonlar yaygın yaklaşık miktarlardır.
 const portions=[
 {test:/yumurta/i,items:[["1 orta boy yumurta",50],["2 yumurta",100]]},
