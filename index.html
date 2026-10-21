@@ -423,6 +423,8 @@
 #besin-gunlugu .daily-advice{margin-top:18px;padding:17px 18px;border:1px solid var(--color-border);background:var(--color-primary-highlight);border-radius:14px;color:var(--color-text)}#besin-gunlugu .daily-advice h3{font-size:1.05rem;margin:0 0 7px}#besin-gunlugu .daily-advice p{margin:5px 0 10px;line-height:1.5}#besin-gunlugu .daily-advice ul{padding-left:19px;margin:7px 0 12px}#besin-gunlugu .daily-advice li{margin:7px 0;line-height:1.45}#besin-gunlugu .daily-advice small{color:var(--color-text-muted);line-height:1.4;display:block}
 
 #besin-gunlugu .plan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0 22px}#besin-gunlugu .plan-item{background:var(--color-surface-offset);border:1px solid var(--color-divider);border-radius:13px;padding:14px;min-width:0}#besin-gunlugu .plan-item h3{font-size:1rem;margin:0 0 9px}#besin-gunlugu .plan-item ul{padding-left:19px;margin:0 0 12px}#besin-gunlugu .plan-item li{line-height:1.5;margin:5px 0;font-size:.87rem}#besin-gunlugu .plan-item strong{color:var(--color-primary)}#besin-gunlugu .plan-item a{color:var(--color-primary);text-decoration:underline}#besin-gunlugu .plan-summary{font-size:.88rem;line-height:1.5;color:var(--color-text-muted)}#besin-gunlugu .plan-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;align-items:end}#besin-gunlugu .plan-controls label{grid-row:1;margin-bottom:0}#besin-gunlugu .plan-controls select{grid-row:2}@media(max-width:560px){#besin-gunlugu .plan-grid{grid-template-columns:1fr}#besin-gunlugu .plan-item{padding:12px}}
+
+#besin-gunlugu #advanced-tools{margin-top:18px}#besin-gunlugu #advanced-tools h2{margin:20px 0 9px}#besin-gunlugu .advanced-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}#besin-gunlugu .advanced-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}#besin-gunlugu .advanced-fields>div{min-width:0}#besin-gunlugu .advanced-fields input{width:100%;box-sizing:border-box}#besin-gunlugu .advanced-day{border:1px solid var(--color-divider);border-radius:12px;padding:12px;background:var(--color-surface-offset)}#besin-gunlugu .advanced-day h3{margin:0 0 7px;font-size:.94rem}#besin-gunlugu .advanced-day p{font-size:.82rem;line-height:1.5;margin:5px 0}#besin-gunlugu .advanced-day small{color:var(--color-text-muted)}#besin-gunlugu .advanced-day button{font-size:.75rem;padding:7px 10px;margin-top:8px}#besin-gunlugu .advanced-buttons{display:flex;gap:8px;flex-wrap:wrap}#besin-gunlugu #barcode-video{max-width:100%;width:330px;border-radius:12px;margin-top:10px}#besin-gunlugu #training-history{margin:10px 0}#besin-gunlugu .advanced-log{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid var(--color-divider);font-size:.84rem}#besin-gunlugu .advanced-log button{padding:5px 8px}#besin-gunlugu .advanced-grid svg{width:100%;height:auto;overflow:visible}#besin-gunlugu .advanced-grid>div{min-width:0}@media(max-width:550px){#besin-gunlugu .advanced-grid{grid-template-columns:1fr}#besin-gunlugu .advanced-fields{gap:8px}#besin-gunlugu #advanced-tools{padding:12px}}
 </style>
 </head>
 <body>
@@ -718,7 +720,7 @@
   </script>
 
 <section id="besin-gunlugu" aria-labelledby="gunluk-title"><h2 id="gunluk-title">🥗 Besin günlüğü</h2><p>Besinleri fotoğraflarıyla ara, gramajını seç ve günlük kalori ile makro değerlerini takip et. Kayıtların yalnızca bu tarayıcıda saklanır.</p><section class="diary-card"><div class="diary-grid"><div><label for="date">Tarih</label><input id="date" type="date"></div><div><label for="goal">Günlük kalori hedefi</label><input id="goal" type="number" min="1" max="10000" value="2000"></div></div><h2>Günlük özet</h2><div class="diary-stats"><div class="diary-stat"><small>Kalori</small><strong id="cal">0</strong><small>kcal</small></div><div class="diary-stat"><small>Protein</small><strong id="protein">0</strong><small>g</small></div><div class="diary-stat"><small>Karbonhidrat</small><strong id="carbs">0</strong><small>g</small></div><div class="diary-stat"><small>Yağ</small><strong id="fat">0</strong><small>g</small></div></div><p id="remaining" aria-live="polite"></p><div class="diary-bar" aria-label="Kalori hedefi ilerlemesi"><div id="progress"></div></div><div id="daily-advice" class="daily-advice" aria-live="polite"><h3 id="advice-title">Günlük değerlendirme</h3><p id="advice-message">Yediklerini eklediğinde hedefinle karşılaştırıp öneriler göstereceğiz.</p><ul id="advice-suggestions"></ul><small>Bu öneriler genel bilgilendirme amaçlıdır. Tek bir günün sonucu sağlık durumunu belirlemez; egzersiz yemekleri telafi etmek için zorunlu değildir.</small></div></section>
-<section class="diary-card" id="personal-plan"><h2>🥗 Günlük menü önerisi</h2><p class="diary-muted">Kalori hedefin ve kaydettiğin öğünlere göre yaklaşık porsiyonlarla örnek menü. Besin değerleri tahminidir.</p><div id="menu-summary" class="plan-summary"></div><div id="menu-items" class="plan-grid"></div><h2>🏠 Evde spor programı</h2><p class="diary-muted">Ekipmansız başlangıç programı. Hareketlerin anlatımı için MuscleWiki bağlantılarını açabilirsin. Spor, fazla yemek yemenin cezası değildir.</p><div class="plan-controls"><label for="fitness-level">Seviye</label><select id="fitness-level"><option value="beginner">Başlangıç</option><option value="intermediate">Orta</option></select><label for="fitness-days">Haftalık gün</label><select id="fitness-days"><option value="2">2 gün</option><option value="3" selected>3 gün</option><option value="4">4 gün</option></select></div><div id="workout-plan" class="plan-grid"></div><p class="diary-muted">Her seansa 5 dakika ısınarak başla, setler arasında 60–90 saniye dinlen. Ağrı veya baş dönmesinde dur. Egzersizlerin bağlantıları MuscleWiki'nin kendi sayfalarına gider; canlı veri entegrasyonu kullanılmaz.</p></section><section class="diary-card"><h2>Besin ekle</h2><label for="search">Besin ara</label><input id="search" type="search" placeholder="Örn. yumurta, pilav, yoğurt"><div class="diary-grid"><div><label for="portion">Porsiyon seçimi <small>(önce listeden besin seç)</small></label><select id="portion"><option value="100">100 gram</option></select></div><div><label for="grams">Miktar (gram)</label><input id="grams" type="number" value="100" min="1" max="10000" step="1" inputmode="decimal"></div><div><label for="meal">Öğün</label><select id="meal"><option>Kahvaltı</option><option>Öğle</option><option>Akşam</option><option>Ara öğün</option></select></div></div><p class="diary-muted">Besin değerleri 100 gram için yaklaşık değerlerdir; marka ve pişirme yöntemine göre değişir.</p><p id="selected-food" class="diary-muted" aria-live="polite">Önce bir besin seçebilir veya 100 g üzerinden doğrudan ekleyebilirsin.</p><div id="foods"></div></section>
+<section class="diary-card" id="personal-plan"><h2>🥗 Günlük menü önerisi</h2><p class="diary-muted">Kalori hedefin ve kaydettiğin öğünlere göre yaklaşık porsiyonlarla örnek menü. Besin değerleri tahminidir.</p><div id="menu-summary" class="plan-summary"></div><div id="menu-items" class="plan-grid"></div><h2>🏠 Evde spor programı</h2><p class="diary-muted">Ekipmansız başlangıç programı. Hareketlerin anlatımı için MuscleWiki bağlantılarını açabilirsin. Spor, fazla yemek yemenin cezası değildir.</p><div class="plan-controls"><label for="fitness-level">Seviye</label><select id="fitness-level"><option value="beginner">Başlangıç</option><option value="intermediate">Orta</option></select><label for="fitness-days">Haftalık gün</label><select id="fitness-days"><option value="2">2 gün</option><option value="3" selected>3 gün</option><option value="4">4 gün</option></select></div><div id="workout-plan" class="plan-grid"></div><p class="diary-muted">Her seansa 5 dakika ısınarak başla, setler arasında 60–90 saniye dinlen. Ağrı veya baş dönmesinde dur. Egzersizlerin bağlantıları MuscleWiki'nin kendi sayfalarına gider; canlı veri entegrasyonu kullanılmaz.</p></section><section class="diary-card" id="advanced-tools"><h2>📅 7 günlük kişisel menü</h2><p class="diary-muted">Günlük kalori hedefine göre yaklaşık porsiyonlar. Besinler değiştirilebilir; bu plan tıbbi diyet değildir.</p><label for="menu-preference">Beslenme tercihi</label><select id="menu-preference"><option value="balanced">Dengeli</option><option value="vegetarian">Etsiz</option></select><button type="button" id="make-week">Haftalık menüyü oluştur</button><div id="weekly-menu" class="advanced-grid"></div><h2>🏋️ Antrenman takipçisi</h2><div class="advanced-fields"><div><label for="training-date">Tarih</label><input id="training-date" type="date"></div><div><label for="training-name">Hareket</label><input id="training-name" placeholder="Örn. Squat" maxlength="80"></div><div><label for="training-sets">Set</label><input id="training-sets" type="number" min="1" max="30" value="3"></div><div><label for="training-reps">Tekrar</label><input id="training-reps" type="number" min="1" max="200" value="12"></div><div><label for="training-weight">Ağırlık (kg, isteğe bağlı)</label><input id="training-weight" type="number" min="0" max="500" step=".5" value="0"></div></div><button type="button" id="save-training">Antrenmanı kaydet</button><div id="training-history"></div><h2>📈 Kilo ve kalori grafikleri</h2><div class="advanced-fields"><div><label for="weight-date">Tarih</label><input id="weight-date" type="date"></div><div><label for="weight-value">Kilo (kg)</label><input id="weight-value" type="number" min="20" max="400" step=".1" placeholder="Örn. 75.5"></div></div><button type="button" id="save-weight">Kiloyu kaydet</button><div class="advanced-grid"><div><h3>Son 14 gün kalori</h3><svg id="calorie-chart" viewBox="0 0 340 170" role="img" aria-label="Günlük kalori grafiği"></svg></div><div><h3>Son 14 kilo kaydı</h3><svg id="weight-chart" viewBox="0 0 340 170" role="img" aria-label="Kilo değişim grafiği"></svg></div></div><p id="weight-history" class="diary-muted"></p><h2>▥ Barkodla besin ekle</h2><p class="diary-muted">Open Food Facts veritabanından ürün arar. Bilgiler topluluk kaynaklıdır; etiketi kontrol et.</p><div class="advanced-fields"><div><label for="barcode-input">Barkod numarası</label><input id="barcode-input" inputmode="numeric" autocomplete="off" placeholder="Örn. 869..." maxlength="18"></div><div><label for="barcode-grams">Tüketilen miktar (g)</label><input id="barcode-grams" type="number" min="1" max="10000" value="100"></div></div><div class="advanced-buttons"><button type="button" id="scan-barcode">Kamerayla tara</button><button type="button" id="lookup-barcode">Ürünü bul</button></div><video id="barcode-video" playsinline muted hidden></video><p id="barcode-status" aria-live="polite" class="diary-muted"></p><div id="barcode-result"></div></section><section class="diary-card"><h2>Besin ekle</h2><label for="search">Besin ara</label><input id="search" type="search" placeholder="Örn. yumurta, pilav, yoğurt"><div class="diary-grid"><div><label for="portion">Porsiyon seçimi <small>(önce listeden besin seç)</small></label><select id="portion"><option value="100">100 gram</option></select></div><div><label for="grams">Miktar (gram)</label><input id="grams" type="number" value="100" min="1" max="10000" step="1" inputmode="decimal"></div><div><label for="meal">Öğün</label><select id="meal"><option>Kahvaltı</option><option>Öğle</option><option>Akşam</option><option>Ara öğün</option></select></div></div><p class="diary-muted">Besin değerleri 100 gram için yaklaşık değerlerdir; marka ve pişirme yöntemine göre değişir.</p><p id="selected-food" class="diary-muted" aria-live="polite">Önce bir besin seçebilir veya 100 g üzerinden doğrudan ekleyebilirsin.</p><div id="foods"></div></section>
 <section class="diary-card"><h2>Kaydedilen öğünler</h2><div class="diary-scroll"><table><thead><tr><th>Öğün / besin</th><th>Miktar</th><th>Kalori</th><th>İşlem</th></tr></thead><tbody id="entries"></tbody></table></div><p id="empty" class="diary-muted">Bu tarihte henüz kayıt yok.</p><div class="diary-actions"><button id="export">CSV olarak dışa aktar</button><button id="clear">Bu günü temizle</button></div></section></section>
 <script>
 "use strict";
@@ -901,5 +903,113 @@ window.addEventListener("kalori-hedef-hesaplandi",event=>{
 });
 function render(){const items=list();let totals=[0,0,0,0];$("entries").replaceChildren();for(const e of items){const f=data[e.food];if(!f)continue;const v=f.slice(1).map(x=>x*e.grams/100);v.forEach((x,i)=>totals[i]+=x);const tr=document.createElement("tr");const a=document.createElement("td");a.append(visualFor(f[0],true),document.createTextNode(e.meal+" · "+f[0]));const b=document.createElement("td");b.textContent=e.grams+" g";const c=document.createElement("td");c.textContent=fmt(v[0])+" kcal";const d=document.createElement("td");const btn=document.createElement("button");btn.textContent="Sil";btn.setAttribute("aria-label",f[0]+" kaydını sil");btn.addEventListener("click",()=>{store.days[$("date").value]=list().filter(x=>x.id!==e.id);save();render()});d.append(btn);tr.append(a,b,c,d);$("entries").append(tr)}["cal","protein","carbs","fat"].forEach((id,i)=>$(id).textContent=fmt(totals[i]).toLocaleString("tr-TR"));const goal=Number($("goal").value)||2000;const left=goal-totals[0];$("remaining").textContent=left>=0?"Hedefe kalan: "+Math.round(left)+" kcal":"Hedef "+Math.round(-left)+" kcal aşıldı";$("progress").style.width=Math.min(100,totals[0]/goal*100)+"%";$("empty").hidden=items.length>0;renderAdvice(totals[0],goal,items.length)}
 $("search").addEventListener("input",()=>{renderFoods();const f=data.find(f=>f[0].toLocaleLowerCase("tr").includes($("search").value.toLocaleLowerCase("tr")));if(f)setPortions(f[0])});$("portion").addEventListener("change",()=>{$("grams").value=$("portion").value});$("grams").addEventListener("input",()=>{const found=[...$("portion").options].find(o=>Number(o.value)===Number($("grams").value));if(found)$("portion").value=found.value});$("date").addEventListener("change",render);$("goal").addEventListener("change",()=>{const n=Number($("goal").value);if(n<1||n>10000){alert("Geçerli bir hedef gir.");return}store.goal=n;save();render()});$("clear").addEventListener("click",()=>{if(!list().length)return;if(confirm("Bu tarihteki tüm kayıtlar silinsin mi?")){store.days[$("date").value]=[];save();render()}});$("export").addEventListener("click",()=>{const rows=[["Tarih","Öğün","Besin","Gram","Kalori","Protein","Karbonhidrat","Yağ"]];for(const [date,entries] of Object.entries(store.days||{}))for(const e of entries){const f=data[e.food];if(f)rows.push([date,e.meal,f[0],e.grams,...f.slice(1).map(x=>fmt(x*e.grams/100))])}const csv="\ufeff"+rows.map(r=>r.map(x=>'"'+String(x).replaceAll('"','""')+'"').join(";")).join("\r\n");const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));const a=document.createElement("a");a.href=url;a.download="besin-gunlugu.csv";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});renderFoods();setPortions("Yumurta");render();
+
+(function(){
+const el=id=>document.getElementById(id);
+const safeRead=(key,defaultValue)=>{try{return JSON.parse(localStorage.getItem(key))??defaultValue}catch{return defaultValue}};
+const save=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
+const foodIndex=name=>data.findIndex(f=>f[0]===name);
+const planDays=[
+[["Yumurta",100],["Ekmek (tam buğday)",70],["Tavuk göğsü (pişmiş)",160],["Bulgur pilavı (pişmiş)",220],["Yoğurt (sade)",200],["Muz",120],["Badem",25]],
+[["Yulaf ezmesi",70],["Süt (yarım yağlı)",250],["Elma",170],["Somon (pişmiş)",160],["Patates (haşlanmış)",240],["Brokoli",180],["Ceviz",25]],
+[["Yumurta",100],["Beyaz peynir",55],["Ekmek (tam buğday)",70],["Mercimek (haşlanmış)",220],["Pirinç pilavı (pişmiş)",180],["Yoğurt (sade)",200],["Portakal",160]],
+[["Yulaf ezmesi",75],["Yoğurt (sade)",220],["Çilek",160],["Hindi göğsü (pişmiş)",170],["Makarna (haşlanmış)",230],["Salatalık",140],["Fındık",25]],
+[["Yumurta",100],["Ekmek (tam buğday)",70],["Ton balığı (suda)",160],["Patates (haşlanmış)",250],["Domates",150],["Ayran",250],["Badem",25]],
+[["Süt (tam yağlı)",250],["Yulaf ezmesi",65],["Muz",120],["Dana eti (yağsız, pişmiş)",160],["Bulgur pilavı (pişmiş)",230],["Yoğurt (sade)",180],["Elma",160]],
+[["Yumurta",100],["Kaşar peyniri",40],["Ekmek (tam buğday)",80],["Nohut (haşlanmış)",240],["Pirinç pilavı (pişmiş)",170],["Ayran",250],["Ceviz",25]]
+];
+const vegetarian={"Tavuk göğsü (pişmiş)":"Nohut (haşlanmış)","Somon (pişmiş)":"Mercimek (haşlanmış)","Hindi göğsü (pişmiş)":"Nohut (haşlanmış)","Ton balığı (suda)":"Mercimek (haşlanmış)","Dana eti (yağsız, pişmiş)":"Kuru fasulye (haşlanmış)"};
+function buildMenu(){
+ const goal=Number(el("goal").value)||2000,veg=el("menu-preference").value==="vegetarian",root=el("weekly-menu");root.replaceChildren();
+ planDays.forEach((day,i)=>{
+ const meals=day.map(([name,g])=>[veg?(vegetarian[name]||name):name,g]);
+ const base=meals.reduce((s,[name,g])=>{const idx=foodIndex(name);return s+(idx<0?0:data[idx][1]*g/100)},0);
+ const factor=Math.max(.65,Math.min(1.5,goal/base));let total=0;
+ const card=document.createElement("div");card.className="advanced-day";
+ const h=document.createElement("h3");h.textContent=["Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi","Pazar"][i];card.append(h);
+ const items=meals.map(([name,g])=>{const grams=Math.max(5,Math.round(g*factor/5)*5);const idx=foodIndex(name);total+=idx<0?0:data[idx][1]*grams/100;return {name,grams,idx}});
+ for(const item of items){const p=document.createElement("p");p.textContent=item.name+" · "+item.grams+" g";card.append(p)}
+ const totalText=document.createElement("strong");totalText.textContent="≈ "+Math.round(total)+" kcal";card.append(totalText);
+ const btn=document.createElement("button");btn.type="button";btn.textContent="Bugüne ekle";btn.addEventListener("click",()=>{
+ if(!confirm("Bu menüdeki tüm besinler seçili tarihe eklensin mi?"))return;
+ const date=el("date").value;store.days??={};store.days[date]??=[];
+ items.forEach((item,j)=>{if(item.idx<0)return;store.days[date].push({id:Date.now()+"-"+i+"-"+j+"-"+Math.random().toString(36).slice(2),food:item.idx,grams:item.grams,meal:j<2?"Kahvaltı":j<4?"Öğle":j<5?"Akşam":"Ara öğün"})});
+ localStorage.setItem("kalori-gunluk-v1",JSON.stringify(store));render();
+ });card.append(btn);root.append(card)
+ })
+}
+el("make-week").addEventListener("click",buildMenu);el("menu-preference").addEventListener("change",buildMenu);el("goal").addEventListener("change",buildMenu);
+window.addEventListener("kalori-hedef-hesaplandi",buildMenu);
+const today=()=>new Date().toLocaleDateString("en-CA");el("training-date").value=today();el("weight-date").value=today();
+function trainingList(){return safeRead("kalori-training-v1",[])}
+function renderTraining(){
+ const root=el("training-history");root.replaceChildren();
+ const list=trainingList().slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,30);
+ if(!list.length){root.textContent="Henüz antrenman kaydı yok.";return}
+ list.forEach(item=>{const row=document.createElement("div");row.className="advanced-log";const t=document.createElement("span");t.textContent=item.date+" · "+item.name+" · "+item.sets+" × "+item.reps+(item.weight?" · "+item.weight+" kg":"");const b=document.createElement("button");b.textContent="Sil";b.addEventListener("click",()=>{save("kalori-training-v1",trainingList().filter(x=>x.id!==item.id));renderTraining()});row.append(t,b);root.append(row)})
+}
+el("save-training").addEventListener("click",()=>{
+ const name=el("training-name").value.trim(),date=el("training-date").value,sets=Number(el("training-sets").value),reps=Number(el("training-reps").value),weight=Number(el("training-weight").value);
+ if(!name||!date||!Number.isInteger(sets)||sets<1||sets>30||!Number.isInteger(reps)||reps<1||reps>200||!Number.isFinite(weight)||weight<0||weight>500){alert("Hareket, tarih, set ve tekrar bilgilerini kontrol et.");return}
+ const list=trainingList();list.push({id:Date.now()+"-"+Math.random(),name,date,sets,reps,weight});save("kalori-training-v1",list);el("training-name").value="";renderTraining()
+});
+function weights(){return safeRead("kalori-weights-v1",[])}
+function svgChart(id,points,unit){
+ const svg=el(id);svg.replaceChildren();const NS="http://www.w3.org/2000/svg";
+ const make=(tag,attrs,text)=>{const n=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,String(v)));if(text!==undefined)n.textContent=text;svg.append(n);return n};
+ if(!points.length){make("text",{x:12,y:80,fill:"#627367","font-size":13},"Henüz kayıt yok");return}
+ const values=points.map(x=>x.value),low=Math.min(...values),high=Math.max(...values),range=Math.max(high-low,1),pad=24;
+ for(let i=0;i<3;i++){const y=20+i*60;make("line",{x1:35,y1:y,x2:330,y2:y,stroke:"#d5dfd3","stroke-width":1});make("text",{x:0,y:y+4,fill:"#627367","font-size":10},(high-range*i/2).toFixed(unit==="kg"?1:0))}
+ const xy=points.map((p,i)=>[35+(points.length===1?145:i*295/(points.length-1)),140-(p.value-low)/range*120]);
+ make("polyline",{points:xy.map(p=>p.join(",")).join(" "),fill:"none",stroke:"#437953","stroke-width":3,"stroke-linecap":"round","stroke-linejoin":"round"});
+ xy.forEach(([x,y],i)=>{const circle=make("circle",{cx:x,cy:y,r:3.5,fill:"#437953"});const title=document.createElementNS(NS,"title");title.textContent=points[i].date+": "+points[i].value+" "+unit;circle.append(title)});
+ make("text",{x:35,y:165,fill:"#627367","font-size":10},points[0].date.slice(5));make("text",{x:285,y:165,fill:"#627367","font-size":10},points[points.length-1].date.slice(5))
+}
+function renderCharts(){
+ const dates=Object.keys(store.days||{}).sort().slice(-14);
+ const calories=dates.map(date=>({date,value:Math.round((store.days[date]||[]).reduce((sum,e)=>{const f=data[e.food];return sum+(f?f[1]*e.grams/100:0)},0))}));
+ svgChart("calorie-chart",calories,"kcal");
+ const list=weights().slice().sort((a,b)=>a.date.localeCompare(b.date));svgChart("weight-chart",list.slice(-14),"kg");
+ el("weight-history").textContent=list.length?"Son kayıt: "+list[list.length-1].date+" · "+list[list.length-1].value+" kg":"Kilo kaydın henüz yok.";
+}
+el("save-weight").addEventListener("click",()=>{
+ const date=el("weight-date").value,value=Number(el("weight-value").value);
+ if(!date||!Number.isFinite(value)||value<20||value>400){alert("Geçerli tarih ve kilo gir.");return}
+ const list=weights().filter(x=>x.date!==date);list.push({date,value});save("kalori-weights-v1",list);renderCharts()
+});
+const originalRender=render;render=function(){originalRender();renderCharts()};
+let cameraStream=null,scanActive=false;
+function stopCamera(){scanActive=false;if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null}el("barcode-video").hidden=true}
+el("scan-barcode").addEventListener("click",async()=>{
+ if(cameraStream){stopCamera();el("scan-barcode").textContent="Kamerayla tara";return}
+ if(!navigator.mediaDevices?.getUserMedia||!("BarcodeDetector" in window)){el("barcode-status").textContent="Bu tarayıcı otomatik barkod taramayı desteklemiyor. Numarayı elle yazabilirsin.";return}
+ try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}});const video=el("barcode-video");video.srcObject=cameraStream;video.hidden=false;await video.play();scanActive=true;el("scan-barcode").textContent="Kamerayı kapat";const detector=new BarcodeDetector({formats:["ean_13","ean_8","upc_a","upc_e"]});const loop=async()=>{if(!scanActive)return;try{const codes=await detector.detect(video);if(codes.length){el("barcode-input").value=codes[0].rawValue;stopCamera();el("scan-barcode").textContent="Kamerayla tara";lookup();return}}catch{}if(scanActive)setTimeout(loop,400)};loop()}catch{stopCamera();el("barcode-status").textContent="Kamera açılamadı. Barkodu elle girebilirsin."}
+});
+async function lookup(){
+ const barcode=el("barcode-input").value.trim(),status=el("barcode-status"),root=el("barcode-result");root.replaceChildren();
+ if(!/^\d{8,14}$/.test(barcode)){status.textContent="8–14 haneli geçerli bir barkod gir.";return}
+ status.textContent="Ürün aranıyor...";
+ try{
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);
+ let response;try{response=await fetch("https://world.openfoodfacts.org/api/v2/product/"+encodeURIComponent(barcode)+".json",{signal:controller.signal})}finally{clearTimeout(timer)}
+ if(!response.ok)throw Error("network");
+ const result=await response.json();if(result.status!==1||!result.product){status.textContent="Ürün bulunamadı.";return}
+ const p=result.product,n=p.nutriments||{},name=p.product_name_tr||p.product_name||"İsimsiz ürün";
+ const kcal=Number(n["energy-kcal_100g"]),protein=Number(n.proteins_100g),carbs=Number(n.carbohydrates_100g),fat=Number(n.fat_100g);
+ if(![kcal,protein,carbs,fat].every(x=>Number.isFinite(x)&&x>=0)){status.textContent="Ürün bulundu ancak 100 gram için eksiksiz kalori ve makro verisi yok. Etiketi kontrol et.";return}
+ status.textContent=name+" · 100 g: "+Math.round(kcal)+" kcal · Protein "+protein+" g · Karbonhidrat "+carbs+" g · Yağ "+fat+" g";
+ const btn=document.createElement("button");btn.textContent="Bu ürünü günlüğe ekle";btn.addEventListener("click",()=>{
+ const grams=Number(el("barcode-grams").value);if(!Number.isFinite(grams)||grams<=0||grams>10000){alert("Geçerli gramaj gir.");return}
+ const date=el("date").value;store.days??={};store.days[date]??=[];
+ // Harici ürün verisini ayrıca sakla; yerleşik besin dizisinin sırası değişmez.
+ const item={id:Date.now()+"-"+Math.random(),food:-1,name,grams,meal:el("meal").value,values:[kcal,protein,carbs,fat]};
+ store.days[date].push(item);localStorage.setItem("kalori-gunluk-v1",JSON.stringify(store));render();status.textContent=name+" günlüğe eklendi."
+ });root.append(btn)
+ }catch{status.textContent="Ürün verisine ulaşılamadı. İnternet bağlantını kontrol et."}
+}
+el("lookup-barcode").addEventListener("click",lookup);
+window.addEventListener("pagehide",stopCamera);
+buildMenu();renderTraining();renderCharts();
+})();
 </script></body>
 </html>
