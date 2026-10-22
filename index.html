@@ -61,6 +61,28 @@
       --font-body: 'Plus Jakarta Sans', 'Helvetica Neue', sans-serif;
     }
 
+    :root[data-theme='dark'] {
+      color-scheme: dark;
+      --color-bg: #10150f;
+      --color-surface: #171d16;
+      --color-surface-offset: #20271e;
+      --color-divider: #30392d;
+      --color-border: #3b4637;
+      --color-text: #eef3eb;
+      --color-text-muted: #b4c0af;
+      --color-text-faint: #7d8978;
+      --color-text-inverse: #10150f;
+      --color-primary: #8bc77f;
+      --color-primary-hover: #a3d49a;
+      --color-primary-active: #b8dfb1;
+      --color-primary-highlight: #263b25;
+      --color-error: #ff9f8e;
+      --color-error-highlight: #48251f;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.28);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.32);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.38);
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
@@ -425,6 +447,10 @@
 #besin-gunlugu .plan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0 22px}#besin-gunlugu .plan-item{background:var(--color-surface-offset);border:1px solid var(--color-divider);border-radius:13px;padding:14px;min-width:0}#besin-gunlugu .plan-item h3{font-size:1rem;margin:0 0 9px}#besin-gunlugu .plan-item ul{padding-left:19px;margin:0 0 12px}#besin-gunlugu .plan-item li{line-height:1.5;margin:5px 0;font-size:.87rem}#besin-gunlugu .plan-item strong{color:var(--color-primary)}#besin-gunlugu .plan-item a{color:var(--color-primary);text-decoration:underline}#besin-gunlugu .plan-summary{font-size:.88rem;line-height:1.5;color:var(--color-text-muted)}#besin-gunlugu .plan-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;align-items:end}#besin-gunlugu .plan-controls label{grid-row:1;margin-bottom:0}#besin-gunlugu .plan-controls select{grid-row:2}@media(max-width:560px){#besin-gunlugu .plan-grid{grid-template-columns:1fr}#besin-gunlugu .plan-item{padding:12px}}
 
 #besin-gunlugu #advanced-tools{margin-top:18px}#besin-gunlugu #advanced-tools h2{margin:20px 0 9px}#besin-gunlugu .advanced-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}#besin-gunlugu .advanced-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}#besin-gunlugu .advanced-fields>div{min-width:0}#besin-gunlugu .advanced-fields input{width:100%;box-sizing:border-box}#besin-gunlugu .advanced-day{border:1px solid var(--color-divider);border-radius:12px;padding:12px;background:var(--color-surface-offset)}#besin-gunlugu .advanced-day h3{margin:0 0 7px;font-size:.94rem}#besin-gunlugu .advanced-day p{font-size:.82rem;line-height:1.5;margin:5px 0}#besin-gunlugu .advanced-day small{color:var(--color-text-muted)}#besin-gunlugu .advanced-day button{font-size:.75rem;padding:7px 10px;margin-top:8px}#besin-gunlugu .advanced-buttons{display:flex;gap:8px;flex-wrap:wrap}#besin-gunlugu #barcode-video{max-width:100%;width:330px;border-radius:12px;margin-top:10px}#besin-gunlugu #training-history{margin:10px 0}#besin-gunlugu .advanced-log{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid var(--color-divider);font-size:.84rem}#besin-gunlugu .advanced-log button{padding:5px 8px}#besin-gunlugu .advanced-grid svg{width:100%;height:auto;overflow:visible}#besin-gunlugu .advanced-grid>div{min-width:0}@media(max-width:550px){#besin-gunlugu .advanced-grid{grid-template-columns:1fr}#besin-gunlugu .advanced-fields{gap:8px}#besin-gunlugu #advanced-tools{padding:12px}}
+
+.app-nav{position:sticky;top:0;z-index:20;display:flex;gap:8px;margin:18px 0 24px;padding:8px;background:color-mix(in srgb,var(--color-surface) 92%,transparent);border:1px solid var(--color-border);border-radius:16px;box-shadow:var(--shadow-sm);backdrop-filter:blur(12px);overflow-x:auto}.app-nav a{flex:1;min-width:max-content;padding:10px 14px;border-radius:10px;color:var(--color-text-muted);font-weight:700;font-size:.86rem;text-decoration:none;text-align:center}.app-nav a:hover,.app-nav a:focus-visible{background:var(--color-primary-highlight);color:var(--color-primary);outline:none}.app-nav a:focus-visible{box-shadow:0 0 0 3px color-mix(in srgb,var(--color-primary) 30%,transparent)}.theme-toggle{flex:none;min-width:44px;border:0;border-radius:10px;background:var(--color-surface-offset);cursor:pointer}.theme-toggle:hover{background:var(--color-primary-highlight)}#hesapla,#besin-gunlugu,#personal-plan,#advanced-tools{scroll-margin-top:90px}#besin-gunlugu #clear,#besin-gunlugu td:last-child button{background:var(--color-error-highlight);color:var(--color-error)}
+.account-card{margin-bottom:24px;padding:18px;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface);box-shadow:var(--shadow-sm)}.account-card summary{cursor:pointer;font-family:var(--font-display);font-weight:700}.account-card p{margin:10px 0;color:var(--color-text-muted);font-size:.88rem}.account-form{display:grid;grid-template-columns:1fr 1fr auto auto;gap:10px;align-items:end}.account-form label{display:grid;gap:5px;font-size:.78rem;font-weight:700}.account-form input{min-width:0;padding:10px;border:1px solid var(--color-border);border-radius:9px;background:var(--color-bg)}.account-card button{padding:10px 13px;border:0;border-radius:9px;background:var(--color-primary);color:var(--color-text-inverse);font-weight:700;cursor:pointer}.account-actions{display:flex;gap:8px;flex-wrap:wrap}.account-card [hidden]{display:none!important}@media(max-width:760px){.account-form{grid-template-columns:1fr 1fr}.account-form button{width:100%}}@media(max-width:480px){.account-form{grid-template-columns:1fr}}
+@media(max-width:600px){.app-nav{margin-inline:-10px;border-radius:12px}.app-nav a{padding:9px 11px}#besin-gunlugu .diary-scroll{overflow:visible}#besin-gunlugu table,#besin-gunlugu tbody,#besin-gunlugu tr,#besin-gunlugu td{display:block;width:100%}#besin-gunlugu thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}#besin-gunlugu tr{margin:10px 0;padding:12px;border:1px solid var(--color-divider);border-radius:12px;background:var(--color-surface-offset)}#besin-gunlugu td{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0;border:0;text-align:right}#besin-gunlugu td::before{color:var(--color-text-muted);font-size:.75rem;font-weight:700;text-align:left}#besin-gunlugu td:nth-child(1)::before{content:"Öğün / besin"}#besin-gunlugu td:nth-child(2)::before{content:"Miktar"}#besin-gunlugu td:nth-child(3)::before{content:"Kalori"}#besin-gunlugu td:nth-child(4)::before{content:"İşlem"}}
 </style>
 </head>
 <body>
@@ -444,9 +470,32 @@
       </p>
     </header>
 
+    <nav class="app-nav" aria-label="Ana bölümler">
+      <a href="#hesapla">Hesapla</a>
+      <a href="#besin-gunlugu">Bugün</a>
+      <a href="#personal-plan">Planlar</a>
+      <a href="#advanced-tools">İlerleme</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Koyu temayı aç" title="Temayı değiştir">◐</button>
+    </nav>
+
+    <details class="account-card">
+      <summary>Hesap ve cihazlar arası eşitleme</summary>
+      <p id="account-status" aria-live="polite">Hesap durumu kontrol ediliyor…</p>
+      <form class="account-form" id="account-form">
+        <label>E-posta<input id="account-email" type="email" autocomplete="email" required maxlength="254"></label>
+        <label>Parola<input id="account-password" type="password" autocomplete="current-password" required minlength="8" maxlength="128"></label>
+        <button id="account-login" type="submit">Giriş yap</button>
+        <button id="account-register" type="button">Hesap oluştur</button>
+      </form>
+      <div class="account-actions">
+        <button id="account-sync" type="button" hidden>Yerel kayıtları hesaba aktar</button>
+        <button id="account-logout" type="button" hidden>Çıkış yap</button>
+      </div>
+    </details>
+
     <div class="columns">
       <!-- FORM -->
-      <section class="card" aria-labelledby="form-title">
+      <section class="card" id="hesapla" aria-labelledby="form-title">
         <h2 id="form-title" class="sr-only">Bilgilerini gir</h2>
         <form id="calc-form" novalidate>
           <div class="form-grid">
@@ -589,7 +638,14 @@
     </section>
   </div>
 
-  <script>
+  <script type="module">
+    import { calculateCalories } from './src/domain/calorie.ts';
+    import { initializeAccount } from './src/ui/account.ts';
+    import { initializeTheme } from './src/ui/theme.ts';
+
+    initializeTheme();
+    initializeAccount();
+
     (function () {
       'use strict';
 
@@ -666,13 +722,19 @@
         var aktivite = Number(document.getElementById('aktivite').value);
         var hedef = form.querySelector('input[name="hedef"]:checked').value;
 
-        var bmr = 10 * v.kilo + 6.25 * v.boy - 5 * v.yas + (cinsiyet === 'erkek' ? 5 : -161);
-        var tdee = bmr * aktivite;
-
-        var hedefKcal = tdee;
+        var calculation = calculateCalories({
+          age: v.yas,
+          heightCm: v.boy,
+          weightKg: v.kilo,
+          sex: cinsiyet,
+          activityMultiplier: aktivite,
+          goal: hedef
+        });
+        var bmr = calculation.bmr;
+        var tdee = calculation.maintenanceCalories;
+        var hedefKcal = calculation.targetCalories;
         var hedefMetin;
         if (hedef === 'vermek') {
-          hedefKcal = Math.max(1000, tdee - 500);
           var acik = tdee - hedefKcal;
           if (acik >= 100) {
             var kgKayip = (acik * 7 / 7700).toFixed(2).replace('.', ',');
@@ -685,7 +747,6 @@
               ' kcal</strong>. Günlük 1.000 kcal altı önerilmediği için bu hedef kilo koruma seviyesine yakındır; kayıp yavaş olur.';
           }
         } else if (hedef === 'almak') {
-          hedefKcal = tdee + 500;
           var kgKazanim = ((hedefKcal - tdee) * 7 / 7700).toFixed(2).replace('.', ',');
           hedefMetin = 'Kilo almak için günlük tahmini hedefin <strong>' +
             Math.round(hedefKcal).toLocaleString('tr-TR') +
@@ -722,7 +783,8 @@
 <section id="besin-gunlugu" aria-labelledby="gunluk-title"><h2 id="gunluk-title">🥗 Besin günlüğü</h2><p>Besinleri fotoğraflarıyla ara, gramajını seç ve günlük kalori ile makro değerlerini takip et. Kayıtların yalnızca bu tarayıcıda saklanır.</p><section class="diary-card"><div class="diary-grid"><div><label for="date">Tarih</label><input id="date" type="date"></div><div><label for="goal">Günlük kalori hedefi</label><input id="goal" type="number" min="1" max="10000" value="2000"></div></div><h2>Günlük özet</h2><div class="diary-stats"><div class="diary-stat"><small>Kalori</small><strong id="cal">0</strong><small>kcal</small></div><div class="diary-stat"><small>Protein</small><strong id="protein">0</strong><small>g</small></div><div class="diary-stat"><small>Karbonhidrat</small><strong id="carbs">0</strong><small>g</small></div><div class="diary-stat"><small>Yağ</small><strong id="fat">0</strong><small>g</small></div></div><p id="remaining" aria-live="polite"></p><div class="diary-bar" aria-label="Kalori hedefi ilerlemesi"><div id="progress"></div></div><div id="daily-advice" class="daily-advice" aria-live="polite"><h3 id="advice-title">Günlük değerlendirme</h3><p id="advice-message">Yediklerini eklediğinde hedefinle karşılaştırıp öneriler göstereceğiz.</p><ul id="advice-suggestions"></ul><small>Bu öneriler genel bilgilendirme amaçlıdır. Tek bir günün sonucu sağlık durumunu belirlemez; egzersiz yemekleri telafi etmek için zorunlu değildir.</small></div></section>
 <section class="diary-card" id="personal-plan"><h2>🥗 Günlük menü önerisi</h2><p class="diary-muted">Kalori hedefin ve kaydettiğin öğünlere göre yaklaşık porsiyonlarla örnek menü. Besin değerleri tahminidir.</p><div id="menu-summary" class="plan-summary"></div><div id="menu-items" class="plan-grid"></div><h2>🏠 Evde spor programı</h2><p class="diary-muted">Ekipmansız başlangıç programı. Hareketlerin anlatımı için MuscleWiki bağlantılarını açabilirsin. Spor, fazla yemek yemenin cezası değildir.</p><div class="plan-controls"><label for="fitness-level">Seviye</label><select id="fitness-level"><option value="beginner">Başlangıç</option><option value="intermediate">Orta</option></select><label for="fitness-days">Haftalık gün</label><select id="fitness-days"><option value="2">2 gün</option><option value="3" selected>3 gün</option><option value="4">4 gün</option></select></div><div id="workout-plan" class="plan-grid"></div><p class="diary-muted">Her seansa 5 dakika ısınarak başla, setler arasında 60–90 saniye dinlen. Ağrı veya baş dönmesinde dur. Egzersizlerin bağlantıları MuscleWiki'nin kendi sayfalarına gider; canlı veri entegrasyonu kullanılmaz.</p></section><section class="diary-card" id="advanced-tools"><h2>📅 7 günlük kişisel menü</h2><p class="diary-muted">Günlük kalori hedefine göre yaklaşık porsiyonlar. Besinler değiştirilebilir; bu plan tıbbi diyet değildir.</p><label for="menu-preference">Beslenme tercihi</label><select id="menu-preference"><option value="balanced">Dengeli</option><option value="vegetarian">Etsiz</option></select><button type="button" id="make-week">Haftalık menüyü oluştur</button><div id="weekly-menu" class="advanced-grid"></div><h2>🏋️ Antrenman takipçisi</h2><div class="advanced-fields"><div><label for="training-date">Tarih</label><input id="training-date" type="date"></div><div><label for="training-name">Hareket</label><input id="training-name" placeholder="Örn. Squat" maxlength="80"></div><div><label for="training-sets">Set</label><input id="training-sets" type="number" min="1" max="30" value="3"></div><div><label for="training-reps">Tekrar</label><input id="training-reps" type="number" min="1" max="200" value="12"></div><div><label for="training-weight">Ağırlık (kg, isteğe bağlı)</label><input id="training-weight" type="number" min="0" max="500" step=".5" value="0"></div></div><button type="button" id="save-training">Antrenmanı kaydet</button><div id="training-history"></div><h2>📈 Kilo ve kalori grafikleri</h2><div class="advanced-fields"><div><label for="weight-date">Tarih</label><input id="weight-date" type="date"></div><div><label for="weight-value">Kilo (kg)</label><input id="weight-value" type="number" min="20" max="400" step=".1" placeholder="Örn. 75.5"></div></div><button type="button" id="save-weight">Kiloyu kaydet</button><div class="advanced-grid"><div><h3>Son 14 gün kalori</h3><svg id="calorie-chart" viewBox="0 0 340 170" role="img" aria-label="Günlük kalori grafiği"></svg></div><div><h3>Son 14 kilo kaydı</h3><svg id="weight-chart" viewBox="0 0 340 170" role="img" aria-label="Kilo değişim grafiği"></svg></div></div><p id="weight-history" class="diary-muted"></p><h2>▥ Barkodla besin ekle</h2><p class="diary-muted">Open Food Facts veritabanından ürün arar. Bilgiler topluluk kaynaklıdır; etiketi kontrol et.</p><div class="advanced-fields"><div><label for="barcode-input">Barkod numarası</label><input id="barcode-input" inputmode="numeric" autocomplete="off" placeholder="Örn. 869..." maxlength="18"></div><div><label for="barcode-grams">Tüketilen miktar (g)</label><input id="barcode-grams" type="number" min="1" max="10000" value="100"></div></div><div class="advanced-buttons"><button type="button" id="scan-barcode">Kamerayla tara</button><button type="button" id="lookup-barcode">Ürünü bul</button></div><video id="barcode-video" playsinline muted hidden></video><p id="barcode-status" aria-live="polite" class="diary-muted"></p><div id="barcode-result"></div></section><section class="diary-card"><h2>Besin ekle</h2><label for="search">Besin ara</label><input id="search" type="search" placeholder="Örn. yumurta, pilav, yoğurt"><div class="diary-grid"><div><label for="portion">Porsiyon seçimi <small>(önce listeden besin seç)</small></label><select id="portion"><option value="100">100 gram</option></select></div><div><label for="grams">Miktar (gram)</label><input id="grams" type="number" value="100" min="1" max="10000" step="1" inputmode="decimal"></div><div><label for="meal">Öğün</label><select id="meal"><option>Kahvaltı</option><option>Öğle</option><option>Akşam</option><option>Ara öğün</option></select></div></div><p class="diary-muted">Besin değerleri 100 gram için yaklaşık değerlerdir; marka ve pişirme yöntemine göre değişir.</p><p id="selected-food" class="diary-muted" aria-live="polite">Önce bir besin seçebilir veya 100 g üzerinden doğrudan ekleyebilirsin.</p><div id="foods"></div></section>
 <section class="diary-card"><h2>Kaydedilen öğünler</h2><div class="diary-scroll"><table><thead><tr><th>Öğün / besin</th><th>Miktar</th><th>Kalori</th><th>İşlem</th></tr></thead><tbody id="entries"></tbody></table></div><p id="empty" class="diary-muted">Bu tarihte henüz kayıt yok.</p><div class="diary-actions"><button id="export">CSV olarak dışa aktar</button><button id="clear">Bu günü temizle</button></div></section></section>
-<script>
+<script type="module">
+import { createFoodId } from './src/domain/food-id.ts';
 "use strict";
 const data=[
 ["Yumurta",143,12.6,0.7,9.5],["Yumurta beyazı",52,10.9,0.7,0.2],["Tavuk göğsü (pişmiş)",165,31,0,3.6],["Hindi göğsü (pişmiş)",135,29,0,1.6],["Dana eti (yağsız, pişmiş)",217,26,0,12],["Somon (pişmiş)",206,22,0,12],["Ton balığı (suda)",116,26,0,1],["Hamsi",131,20,0,4.8],["Süt (tam yağlı)",61,3.2,4.8,3.3],["Süt (yarım yağlı)",47,3.4,5,1.5],["Yoğurt (sade)",61,3.5,4.7,3.3],["Süzme yoğurt",97,9,3.5,5],["Beyaz peynir",264,14,4,21],["Kaşar peyniri",350,25,2,27],["Lor peyniri",98,17,3,2],["Kefir",55,3.5,4.5,2.5],["Ekmek (beyaz)",265,9,49,3.2],["Ekmek (tam buğday)",247,13,41,4.2],["Yulaf ezmesi",389,16.9,66.3,6.9],["Pirinç pilavı (pişmiş)",130,2.7,28.2,0.3],["Bulgur pilavı (pişmiş)",83,3.1,18.6,0.2],["Makarna (haşlanmış)",158,5.8,30.9,0.9],["Patates (haşlanmış)",87,1.9,20.1,0.1],["Patates kızartması",312,3.4,41,15],["Mercimek (haşlanmış)",116,9,20.1,0.4],["Nohut (haşlanmış)",164,8.9,27.4,2.6],["Kuru fasulye (haşlanmış)",127,8.7,22.8,0.5],["Bezelye (haşlanmış)",84,5.4,15.6,0.2],["Domates",18,0.9,3.9,0.2],["Salatalık",15,0.7,3.6,0.1],["Marul",15,1.4,2.9,0.2],["Havuç",41,0.9,9.6,0.2],["Brokoli",34,2.8,6.6,0.4],["Ispanak",23,2.9,3.6,0.4],["Muz",89,1.1,22.8,0.3],["Elma",52,0.3,13.8,0.2],["Portakal",47,0.9,11.8,0.1],["Çilek",32,0.7,7.7,0.3],["Üzüm",69,0.7,18.1,0.2],["Avokado",160,2,8.5,14.7],["Badem",579,21.2,21.6,49.9],["Ceviz",654,15.2,13.7,65.2],["Fındık",628,15,17,60.8],["Fıstık ezmesi",588,25,20,50],["Zeytinyağı",884,0,0,100],["Tereyağı",717,0.9,0.1,81],["Bal",304,0.3,82.4,0],["Toz şeker",387,0,100,0],["Bitter çikolata",598,7.8,45.9,42.6],["Simit",330,10,58,6],["Poğaça",350,8,42,17],["Lahmacun",240,10,28,10],["Pizza",266,11,33,10],["Döner (et)",250,18,4,18],["Çorba (mercimek)",80,4,12,2],["Ayran",37,2,3,2],["Kola (şekerli)",42,0,10.6,0],["Portakal suyu",45,0.7,10.4,0.2]];
@@ -817,7 +879,26 @@ const portions=[
 {test:/peynir|lor/i,items:[["1 dilim",30],["1 porsiyon",50]]}
 ];
 function setPortions(name){const select=document.getElementById("portion");const current=Number(document.getElementById("grams").value)||100;select.replaceChildren();const entries=[["100 gram",100],["50 gram",50],["150 gram",150],["200 gram",200],["250 gram",250],...((portions.find(p=>p.test.test(name))||{}).items||[])];for(const [label,grams] of entries){const option=document.createElement("option");option.value=String(grams);option.textContent=label+" · "+grams+" g";select.append(option)}select.value=String(entries.find(e=>e[1]===current)?.[1]||100)}
-const $=id=>document.getElementById(id);const key="kalori-gunluk-v1";let store={};try{store=JSON.parse(localStorage.getItem(key)||"{}")||{}}catch(e){store={}};const today=new Date();$("date").value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,"0"),String(today.getDate()).padStart(2,"0")].join("-");$("goal").value=Number(store.goal)||2000;const save=()=>{try{localStorage.setItem(key,JSON.stringify(store))}catch(e){alert("Tarayıcı kayıt alanı kullanılamıyor.")}};const list=()=>store.days?.[$("date").value]||[];const fmt=n=>Math.round(n*10)/10;
+const $=id=>document.getElementById(id);
+const key="kalori-gunluk-v1";
+let store={};
+try{store=JSON.parse(localStorage.getItem(key)||"{}")||{}}catch(e){store={}}
+const foodId=createFoodId;
+function stabilizeEntries(){
+ let changed=false;
+ for(const entries of Object.values(store.days||{}))for(const entry of entries){
+  if(!entry.foodId&&Number.isInteger(entry.food)&&data[entry.food]){entry.foodId=foodId(data[entry.food][0]);changed=true}
+  if(entry.foodId){const index=data.findIndex(f=>foodId(f[0])===entry.foodId);if(index>=0&&entry.food!==index){entry.food=index;changed=true}}
+ }
+ return changed
+}
+const save=()=>{try{stabilizeEntries();localStorage.setItem(key,JSON.stringify(store))}catch(e){alert("Tarayıcı kayıt alanı kullanılamıyor.")}};
+const today=new Date();
+$("date").value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,"0"),String(today.getDate()).padStart(2,"0")].join("-");
+$("goal").value=Number(store.goal)||2000;
+const list=()=>store.days?.[$("date").value]||[];
+const fmt=n=>Math.round(n*10)/10;
+if(stabilizeEntries())save();
 function renderFoods(){const q=$("search").value.toLocaleLowerCase("tr");$("foods").replaceChildren();let count=0;data.forEach((f,i)=>{if(!f[0].toLocaleLowerCase("tr").includes(q))return;count++;const row=document.createElement("div");row.className="diary-food";const t=document.createElement("div");const b=document.createElement("b");b.textContent=f[0];const s=document.createElement("small");s.textContent="100 g · "+f[1]+" kcal · Protein "+f[2]+" g · Karb. "+f[3]+" g · Yağ "+f[4]+" g";const copy=document.createElement("div");copy.className="diary-food-copy";copy.append(b,s);t.className="diary-food-info";t.append(visualFor(f[0]),copy);const choose=document.createElement("button");choose.textContent="Seç";choose.type="button";choose.className="food-choose";choose.addEventListener("click",()=>{setPortions(f[0]);$("grams").value="100";$("selected-food").textContent="Seçilen besin: "+f[0]+" — aşağıdan porsiyonunu belirleyip Ekle’ye bas.";const chosen=$("foods").querySelectorAll(".diary-food");chosen.forEach(el=>el.classList.remove("is-selected"));row.classList.add("is-selected")});const btn=document.createElement("button");btn.textContent="Ekle";btn.addEventListener("click",()=>{const g=Number($("grams").value);if(!Number.isFinite(g)||g<=0||g>10000){alert("1 ile 10.000 arasında gramaj gir.");return}store.days??={};store.days[$("date").value]??=[];store.days[$("date").value].push({id:Date.now()+"-"+Math.random().toString(36).slice(2),food:i,grams:g,meal:$("meal").value});save();render()});const controls=document.createElement("div");controls.className="food-controls";controls.append(choose,btn);row.append(t,controls);$("foods").append(row)});if(!count)$("foods").textContent="Eşleşen besin bulunamadı."}
 
 // Hedefe dayalı örnek menü; mevcut 100 g besin tablosundan hesaplanır.

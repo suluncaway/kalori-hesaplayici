@@ -13,11 +13,35 @@ Webte çalışan, Türkçe arayüzlü günlük kalori ihtiyacı hesaplama uygula
 
 ## Kullanım
 
-`index.html` dosyasını tarayıcıda açman yeterli. Bir sunucuda barındırmak istersen:
+Geliştirme ortamını kurup frontend'i çalıştırmak için:
 
 ```bash
-npx serve .
+pnpm install
+pnpm dev
 ```
+
+Kalite kontrolleri:
+
+```bash
+pnpm lint
+pnpm test
+pnpm build
+```
+
+## API geliştirme
+
+Backend; Fastify, TypeScript ve PostgreSQL kullanır. `.env.example` dosyasını temel alarak
+`DATABASE_URL`, `ALLOWED_ORIGINS` ve diğer ortam değişkenlerini tanımla. Önce
+Migrasyonları ve besin başlangıç verisini yükleyip API'yi çalıştırmak için:
+
+```bash
+pnpm db:migrate
+pnpm dev:api
+```
+
+API varsayılan olarak `http://localhost:3000` adresinde açılır. Oturum bilgisi güvenli,
+HTTP-only çerezde tutulur. Üretimde frontend origin'i `ALLOWED_ORIGINS` içine açıkça
+eklenmelidir.
 
 ## Nasıl hesaplanıyor?
 
